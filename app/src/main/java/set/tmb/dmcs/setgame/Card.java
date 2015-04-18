@@ -1,23 +1,13 @@
 package set.tmb.dmcs.setgame;
 
-/**
- * Created by Damian on 2015-03-22.
- */
+import android.graphics.drawable.Drawable;
 
-import java.util.Random;
-
-
-
-/**
- * Created by Damian on 2015-03-15.
- */
 public class Card {
     int Id;
     Color color;
     int figuresQuantity;
     Shape shape;
     Inside inside;
-    int drawableColor;
 
     public Card(int Id, int figuresQuantity, Color color, Shape shape, Inside inside){
         this.Id=Id;
@@ -33,13 +23,8 @@ public class Card {
         if (!(o instanceof Card)) return false;
 
         Card card = (Card) o;
+        return color == card.color && inside == card.inside && shape == card.shape && figuresQuantity == card.figuresQuantity;
 
-        if (figuresQuantity != card.figuresQuantity) return false;
-        if (color != card.color) return false;
-        if (inside != card.inside) return false;
-        if (shape != card.shape) return false;
-
-        return true;
     }
 
     @Override
@@ -53,7 +38,11 @@ public class Card {
 
      @Override
     public String toString(){
-        return this.figuresQuantity+""+this.color.toString().substring(0,1)+""+this.shape.toString().substring(0,1)+""+this.inside.toString().substring(0,1);
+        return shape+"_"+color+"_"+inside+"_"+figuresQuantity;
+    }
+
+    private void getDrawable(){
+        Drawable d = R.drawable.OVAL_GREEN_FULL_3;
     }
 
 

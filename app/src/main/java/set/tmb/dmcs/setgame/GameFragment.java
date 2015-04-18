@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -61,6 +62,9 @@ public class GameFragment extends Fragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+
+        Toast.makeText(getActivity().getApplicationContext(),"You clicked checkboxes",Toast.LENGTH_LONG).show();
+
         cards.add((CheckBox)getView().findViewById(R.id.button));
         cards.add((CheckBox)getView().findViewById(R.id.button2));
         cards.add((CheckBox)getView().findViewById(R.id.button3));
@@ -73,6 +77,16 @@ public class GameFragment extends Fragment {
         cards.add((CheckBox)getView().findViewById(R.id.button10));
         cards.add((CheckBox)getView().findViewById(R.id.button11));
         cards.add((CheckBox)getView().findViewById(R.id.button12));
+        for(CheckBox box : cards){
+            box.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    CheckBox clickedChecbox = (CheckBox)v;
+                    if(((CheckBox) v).isChecked())
+                        Toast.makeText(getActivity().getApplicationContext(),"You clicked checkboxes",Toast.LENGTH_LONG).show();
+                }
+            });
+        }
 
 
         super.onCreate(savedInstanceState);
@@ -142,7 +156,7 @@ public class GameFragment extends Fragment {
         for(CheckBox card : cards){
             int img = getResources().getIdentifier("@drawable/"+String.valueOf(drawableId.get(i++)),"drawable",getActivity().getCallingPackage());
             d = getResources().getDrawable(drawableId.get(i++));
-              card.setBackground(d);
+              //card.setBackground(d);
         }
     }
 
