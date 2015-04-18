@@ -1,4 +1,4 @@
-package set.tmb.dmcs.setgame;
+package set.tmb.dmcs.setgame.layout;
 
 import android.net.Uri;
 import android.os.Bundle;
@@ -6,6 +6,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import set.tmb.dmcs.setgame.R;
 
 
 public class MainActivity extends ActionBarActivity implements GameFragment.OnFragmentInteractionListener {

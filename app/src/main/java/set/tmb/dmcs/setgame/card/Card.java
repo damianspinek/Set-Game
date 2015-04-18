@@ -1,6 +1,8 @@
-package set.tmb.dmcs.setgame;
+package set.tmb.dmcs.setgame.card;
 
 import android.graphics.drawable.Drawable;
+
+import set.tmb.dmcs.setgame.layout.MainActivity;
 
 public class Card {
     int Id;

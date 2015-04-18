@@ -1,4 +1,4 @@
-package set.tmb.dmcs.setgame;
+package set.tmb.dmcs.setgame.layout;
 
 import android.app.Activity;
 import android.net.Uri;
@@ -8,7 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.util.List;
+import set.tmb.dmcs.setgame.R;
 
 
 /**

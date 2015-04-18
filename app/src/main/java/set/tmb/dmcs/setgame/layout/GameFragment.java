@@ -1,7 +1,6 @@
-package set.tmb.dmcs.setgame;
+package set.tmb.dmcs.setgame.layout;
 
 import android.app.Activity;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
@@ -9,10 +8,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import set.tmb.dmcs.setgame.card.Card;
+import set.tmb.dmcs.setgame.R;
+import set.tmb.dmcs.setgame.card.SetCards;
 
 
 /**
@@ -29,8 +33,8 @@ public class GameFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-    List<CheckBox> chooseCards = new ArrayList<CheckBox>();
-    List<CheckBox> cards;
+    private final List<CheckBox> chooseCards = new ArrayList<CheckBox>();
+    private List<CheckBox> cards;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -78,15 +82,20 @@ public class GameFragment extends Fragment {
         cards.add((CheckBox)getView().findViewById(R.id.button11));
         cards.add((CheckBox)getView().findViewById(R.id.button12));
         for(CheckBox box : cards){
-            box.setOnClickListener(new View.OnClickListener() {
+            box.setOnClickListener( new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    CheckBox clickedChecbox = (CheckBox)v;
-                    if(((CheckBox) v).isChecked())
-                        Toast.makeText(getActivity().getApplicationContext(),"You clicked checkboxes",Toast.LENGTH_LONG).show();
+                    CheckBox tmp = (CheckBox) v;
+                    if (tmp.isChecked()) {
+                        chooseCards.add(tmp);
+                    }
+                    if(chooseCards.size() == 3){
+                        Toast.makeText(getActivity().getApplicationContext(),"You clicked 3 checkboxes",Toast.LENGTH_LONG).show();
+                    }
                 }
             });
         }
+
 
 
         super.onCreate(savedInstanceState);

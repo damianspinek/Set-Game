@@ -1,9 +1,13 @@
-package set.tmb.dmcs.setgame;
+package set.tmb.dmcs.setgame.card;
 
-import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+
+import set.tmb.dmcs.setgame.card.Card;
+import set.tmb.dmcs.setgame.card.Color;
+import set.tmb.dmcs.setgame.card.Inside;
+import set.tmb.dmcs.setgame.card.Shape;
 
 /**
  * Created by Damian on 2015-03-22.
@@ -42,11 +46,7 @@ public class SetCards {
     }
 
     private static boolean isDrawn(List<Card> drawnCards, Card actualCard){
-        if(drawnCards.isEmpty()) return false;
-        for(Card card: drawnCards){
-            if(actualCard.equals(card)) return true;
-        }
-        return false;
+        return drawnCards.contains(actualCard);
     }
 
 }

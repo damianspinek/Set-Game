@@ -3,7 +3,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <fragment android:name=".GameFragment"
+    <fragment android:name="set.tmb.dmcs.setgame.layout.GameFragment"
         android:id="@+id/game"
         android:layout_weight="1"
         android:layout_width="match_parent"
