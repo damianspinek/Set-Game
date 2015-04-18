@@ -8,6 +8,7 @@ public class Card {
     int figuresQuantity;
     Shape shape;
     Inside inside;
+    Drawable drawable;
 
     public Card(int Id, int figuresQuantity, Color color, Shape shape, Inside inside){
         this.Id=Id;
@@ -15,6 +16,7 @@ public class Card {
         this.figuresQuantity = figuresQuantity;
         this.shape=shape;
         this.inside = inside;
+        this.drawable = getDrawable(this.toString());
     }
 
     @Override
@@ -38,11 +40,13 @@ public class Card {
 
      @Override
     public String toString(){
-        return shape+"_"+color+"_"+inside+"_"+figuresQuantity;
+        return shape.toString().toLowerCase()+"_"+color.toString().toLowerCase()+"_"+inside.toString().toLowerCase()+"_"+figuresQuantity;
     }
 
-    private void getDrawable(){
-        Drawable d = R.drawable.OVAL_GREEN_FULL_3;
+    private Drawable getDrawable(String name){
+        MainActivity context = MainActivity.getContext();
+        int resourceId = context.getResources().getIdentifier(name, "drawable", context.getPackageName());
+        return context.getResources().getDrawable(resourceId);
     }
 
 

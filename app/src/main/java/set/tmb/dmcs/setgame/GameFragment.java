@@ -145,19 +145,6 @@ public class GameFragment extends Fragment {
 
     private void getCardImage(List<CheckBox> cards){
         List<Card>cardsToGame = SetCards.getCardsToGame();
-        List<Integer> drawableId = new ArrayList<>();
-        Drawable d;
-
-        for(Card card : cardsToGame){
-            drawableId.add(card.Id);
-        }
-
-        int i=0;
-        for(CheckBox card : cards){
-            int img = getResources().getIdentifier("@drawable/"+String.valueOf(drawableId.get(i++)),"drawable",getActivity().getCallingPackage());
-            d = getResources().getDrawable(drawableId.get(i++));
-              //card.setBackground(d);
-        }
     }
 
 
